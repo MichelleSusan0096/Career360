@@ -1376,7 +1376,18 @@ Employer feedback stored
 ```text
 career360/
 ├── AGENTS.md
+├── CONTRIBUTING.md
 ├── .antigravityignore
+├── .github/
+│   └── PULL_REQUEST_TEMPLATE.md
+│
+├── collaboration/
+│   ├── README.md
+│   ├── CURRENT_STATE.md
+│   ├── TASK_BOARD.md
+│   ├── DECISIONS.md
+│   ├── BLOCKERS.md
+│   └── HANDOFF.md
 │
 ├── frontend/
 ├── backend/
@@ -1992,3 +2003,80 @@ The domain model and business rules remain authoritative inside Career360.
 ## 69. Final Mission Statement
 
 > **Career360 continuously translates evolving industry requirements into measurable competencies, identifies capability gaps in students and cohorts, enables targeted learning and training, validates improvement through evidence and reassessment, determines explainable role readiness, connects demonstrably ready talent to relevant opportunities, and captures outcomes for the next cycle of industry and workforce intelligence.**
+
+---
+
+## 70. Shared Collaboration Context
+
+The Career360 repository itself is the **single shared source of truth** for all human-led and AI-assisted collaborative engineering.
+
+Rules:
+1. **Committed repository files are authoritative project memory.** Personal AI memory, session transcripts, and chat logs are ephemeral and **never authoritative**.
+2. Every AI session **MUST** read the following files before planning or modifying code:
+   - `collaboration/CURRENT_STATE.md`
+   - `collaboration/TASK_BOARD.md`
+   - `collaboration/BLOCKERS.md`
+   - `collaboration/HANDOFF.md`
+   - Relevant decisions in `collaboration/DECISIONS.md` or formal ADRs in `decisions/`.
+3. Every AI session **MUST** invoke and follow the `.agents/skills/collaboration-context/SKILL.md` skill.
+4. AI agents must update the operational collaboration state after meaningful implementation work, important discoveries, architecture/domain decisions, blockers, and session handoffs.
+5. AI agents must **never invent project state**, teammate names, task assignments, deadlines, or completed features.
+6. AI agents must verify implementation with deterministic tests before claiming completion or marking any task `DONE`.
+7. Important non-ADR technical decisions must be recorded in `collaboration/DECISIONS.md`. Formal architectural decisions must be authored as ADRs in `decisions/`.
+8. Session handoffs must be repository-based via `collaboration/HANDOFF.md`, enabling any subsequent AI session to continue without conversational context.
+9. Collaboration files must **never contain secrets**, tokens, credentials, or private personal data.
+10. Operational notes in `collaboration/` can never override or dilute authoritative architectural, security, or domain specifications.
+
+---
+
+## 71. AI Session Protocol
+
+Every AI coding session must follow the strict execution lifecycle:
+
+```text
+START
+  ↓
+CONTEXT CHECK
+  ↓
+TASK CONFIRMATION
+  ↓
+IMPLEMENT
+  ↓
+VERIFY
+  ↓
+UPDATE SHARED STATE
+  ↓
+HANDOFF
+```
+
+### Lifecycle Phases:
+1. **START**: Load global constraints from `AGENTS.md` and check out the active branch.
+2. **CONTEXT CHECK**: Inspect `collaboration/CURRENT_STATE.md`, `collaboration/TASK_BOARD.md`, `collaboration/BLOCKERS.md`, `collaboration/HANDOFF.md`, and targeted domain docs in `docs/`. Run `git status` to observe true working-tree reality and detect contradictions.
+3. **TASK CONFIRMATION**: Confirm the task is represented under `IN_PROGRESS` on `collaboration/TASK_BOARD.md` and is active in `docs/16_active_sprint.md`.
+4. **IMPLEMENT**: Author complete, type-safe code without placeholders (`TODO`, `FIXME`, dummy mocks).
+5. **VERIFY**: Execute deterministic verification hooks (`python .agents/hooks/security_check.py --changed`, `python .agents/hooks/verify.py --changed`) and component test suites.
+6. **UPDATE SHARED STATE**: Update `collaboration/TASK_BOARD.md` with verification evidence. Update `CURRENT_STATE.md`, `DECISIONS.md`, and `BLOCKERS.md` if state changed.
+7. **HANDOFF**: Author concrete continuation details in `collaboration/HANDOFF.md` so the next session can continue cleanly.
+
+---
+
+## 72. Source of Truth & Precedence Hierarchy
+
+Discrepancies across project files must be resolved strictly using this precedence order:
+
+```text
+AGENTS.md
+  >
+Formal project, domain, architecture, security, and design documents (docs/)
+  >
+Accepted Architecture Decision Records (decisions/)
+  >
+Operational collaboration state (collaboration/)
+  >
+Task-specific implementation context
+  >
+Personal AI chat memory (NEVER authoritative)
+```
+
+Collaboration files reflect living operational facts and cannot override or loosen architectural, security, contract, or domain invariants established in higher-precedence documents.
+
