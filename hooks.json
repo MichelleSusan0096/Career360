@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "description": "Career360 Antigravity verification hooks",
+  "hooks": [
+    {
+      "name": "post-tooluse-verify",
+      "event": "PostToolUse",
+      "enabled": true,
+      "description": "Run scoped deterministic verification after implementation changes.",
+      "command": "python .agents/hooks/verify.py --changed",
+      "timeout_seconds": 120,
+      "continue_on_error": false
+    },
+    {
+      "name": "post-tooluse-security-scan",
+      "event": "PostToolUse",
+      "enabled": true,
+      "description": "Run lightweight checks for accidental secrets and unsafe configuration changes.",
+      "command": "python .agents/hooks/security_check.py --changed",
+      "timeout_seconds": 60,
+      "continue_on_error": false
+    },
+    {
+      "name": "post-tooluse-ui-check",
+      "event": "PostToolUse",
+      "enabled": true,
+      "description": "Run frontend type/lint checks when UI files are changed.",
+      "command": "python .agents/hooks/ui_verify.py --changed",
+      "timeout_seconds": 120,
+      "continue_on_error": false
+    }
+  ],
+  "execution_policy": {
+    "run_only_when_relevant_files_changed": true,
+    "block_on_verification_failure": true,
+    "never_skip_security_checks_for_production_files": true,
+    "never_claim_success_without_exit_code_zero": true
+  }
+}

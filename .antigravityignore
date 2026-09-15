@@ -1,0 +1,196 @@
+# Career360 Antigravity Ignore Rules
+#
+# Purpose:
+# Keep agent context, indexing, search, planning, and verification focused on
+# authoritative source code, configuration, documentation, and required assets.
+#
+# Never use this file to hide a security-sensitive file from source control.
+# Git ignore rules and secret management remain separate concerns.
+
+# ---------------------------------------------------------------------------
+# Operating-system / editor noise
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.iml
+
+# ---------------------------------------------------------------------------
+# Environment files / secrets
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+secrets/
+secret/
+.local/
+*.secret
+
+# ---------------------------------------------------------------------------
+# Logs / runtime output
+# ---------------------------------------------------------------------------
+*.log
+logs/
+tmp/
+temp/
+runtime/
+coverage/
+.nyc_output/
+
+# ---------------------------------------------------------------------------
+# Node / React / Vite
+# ---------------------------------------------------------------------------
+node_modules/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+.npm/
+dist/
+build/
+.vite/
+.eslintcache
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Java / Spring / Gradle / Maven
+# ---------------------------------------------------------------------------
+.gradle/
+.mvn/timing.properties
+target/
+out/
+*.class
+*.jar
+*.war
+hs_err_pid*
+replay_pid*
+
+# ---------------------------------------------------------------------------
+# Test / generated artifacts
+# ---------------------------------------------------------------------------
+test-results/
+playwright-report/
+blob-report/
+screenshots/
+artifacts/
+reports/generated/
+*.snap
+
+# ---------------------------------------------------------------------------
+# Docker / local infrastructure artifacts
+# ---------------------------------------------------------------------------
+.docker/
+docker-data/
+docker-cache/
+*.pid
+
+# ---------------------------------------------------------------------------
+# Database / local storage artifacts
+# ---------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+backups/
+database-backups/
+
+# ---------------------------------------------------------------------------
+# Generated API/client/build files
+# ---------------------------------------------------------------------------
+generated/
+generated-sources/
+generated-client/
+openapi-generated/
+*.generated.ts
+*.generated.java
+
+# ---------------------------------------------------------------------------
+# IDE / agent temporary state
+# ---------------------------------------------------------------------------
+.antigravity/tmp/
+.antigravity/cache/
+.antigravity/state/
+.antigravity/session/
+.agents/tmp/
+.agents/cache/
+.agents/state/
+.agents/session/
+
+# Keep authoritative agent definitions and rules visible to Antigravity.
+!.agents/agents/
+!.agents/rules/
+!.agents/skills/
+!.agents/hooks/
+
+# ---------------------------------------------------------------------------
+# Documentation scratch material
+# ---------------------------------------------------------------------------
+docs/_drafts/
+docs/_scratch/
+docs/generated/
+docs/.tmp/
+
+# Keep authoritative project docs visible.
+!docs/
+!docs/*.md
+
+# ---------------------------------------------------------------------------
+# Large local datasets / exports
+# ---------------------------------------------------------------------------
+datasets/
+data/raw/
+data/tmp/
+exports/
+*.csv
+*.tsv
+*.parquet
+*.feather
+
+# Exception:
+# Small fixture data may be explicitly kept in version control under tests.
+!src/**/test-fixtures/
+!src/**/test-fixtures/*.csv
+
+# ---------------------------------------------------------------------------
+# Uploaded/local documents not required for source indexing
+# ---------------------------------------------------------------------------
+uploads/
+storage/
+local-uploads/
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+
+# ---------------------------------------------------------------------------
+# Frontend generated assets
+# ---------------------------------------------------------------------------
+public/generated/
+public/uploads/
+public/cache/
+
+# ---------------------------------------------------------------------------
+# Infrastructure state / local credentials
+# ---------------------------------------------------------------------------
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+*.tfstate
+*.tfstate.backup
+.opentofu/
