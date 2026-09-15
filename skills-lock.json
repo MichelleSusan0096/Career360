@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "computedHash": "80161e6836b3b40f4e83730a290deb40ac14d877d38c97ad5f6d71be37ce74c3"
+    },
+    "flyway-migrations": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/flyway-migrations/SKILL.md",
+      "computedHash": "49d5f9288f14cb2f72a91642deb444fd413d72a33a7476a89d50d93d49ac61f3"
+    },
+    "layered-architecture": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/layered-architecture/SKILL.md",
+      "computedHash": "c1511dd46e8f6ad616f43caa80b3c326162a0ab095fe7af743b4029931e9b3be"
+    },
+    "postgres-best-practices": {
+      "source": "neondatabase/postgres-skills",
+      "sourceType": "github",
+      "skillPath": "skills/postgres-best-practices/SKILL.md",
+      "computedHash": "316f8f76c582ff3bf9a6c8e4238867dbdbf70735587f40cb634c4d046ff5db42"
+    },
+    "production-observability": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/production-observability/SKILL.md",
+      "computedHash": "da170648a844886385b811ad48d1c31fea82aea438d490088eb8dd33c6848d6e"
+    },
+    "rest-api-conventions": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/rest-api-conventions/SKILL.md",
+      "computedHash": "2d998d8fcac94ee83e75e14d5966874a945af14d8a259f26e9757161c1e01afa"
+    },
+    "security-guidance": {
+      "source": "owasp/secure-agent-playbook",
+      "sourceType": "github",
+      "skillPath": "plugins/code-security-skills/skills/security-guidance/SKILL.md",
+      "computedHash": "40ae24f8f851fee60298d840a578e0e0e2014fb3648d3010ad8abc8ecca54ec2"
+    },
+    "shadcn": {
+      "source": "shadcn-ui/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "d04e43ec01e921558b93bb8046c14a42a22556689a2827243df900825a4e1604"
+    },
+    "spring-boot-skill": {
+      "source": "sivaprasadreddy/sivalabs-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot/SKILL.md",
+      "computedHash": "d6ccbceb20b180d2e02bf4c425decff41cbee78797e5db774585d0baf7179833"
+    },
+    "spring-data-jpa": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/spring-data-jpa/SKILL.md",
+      "computedHash": "f7d69d15867e244d3207e69f04855c8286a5ab7e4bae94830ebed0f2debb69e2"
+    },
+    "spring-modulith": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/spring-modulith/SKILL.md",
+      "computedHash": "9a6b6642683770feb2e79c45b839e21ca2df4fa723e515adf9198d6b08a1211d"
+    },
+    "spring-security-jwt": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/spring-security-jwt/SKILL.md",
+      "computedHash": "3e298694c2b591cd78f12c1ece0ff22a4a0044372ab3ea70bf5c64963ce5b0ba"
+    },
+    "testing-pyramid": {
+      "source": "rrezartprebreza/spring-boot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spring-boot-3/testing-pyramid/SKILL.md",
+      "computedHash": "f1ca17372ae9d5cdf5d2a3076f03e0c16cbe859b5f5cdabbee549219e6551d44"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "6b526d013e28073246a36f99b529bc43745d30832ecfa8217b359c34f260ca6b"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "d8e7d3afe37dcc8a97b99ffb5afdb4d0919ae0092ea8b68f44eb201f035e33ac"
+    }
+  }
+}
